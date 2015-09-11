@@ -80,7 +80,7 @@ JSON API conventions.
 {
   data: {
     type: 'games',
-    id: 'game1', 
+    id: 'game1',
     attributes: {
       order: [player_id1, player_id2, player_id3, player_id4], 
       play_until: 500,
@@ -121,4 +121,64 @@ JSON API conventions.
 }
 ````
 
-#### `/games/score` Response
+#### `GET /games/{game_id}/rounds` Response
+
+````
+{
+  data: [{
+    type: 'rounds',
+    id: 'round1',
+    attributes: {
+      bidding_order: ['player_id1', 'player_id3', 'player_id2', 'player_id4'],
+      playing_order: ['player_id1', 'player_id3', 'player_id2', 'player_id4'],
+      bids: [],
+      tricks: [],
+    },
+  }],
+  relationships: {
+    games: {
+      data: {
+        type: 'games',
+        id: 'game1',
+      },
+    },
+  },
+  links: {
+    self: '/games/game1/rounds',
+  },
+}
+````
+
+### `/teams` Resource
+
+#### `POST /teams` Request
+
+````
+{
+  data: {
+    type: 'teams',
+    attributes: {
+      player_1: 'player_id1',
+      player_2: 'player_id2',
+    },
+  },
+}
+````
+
+#### `/teams` Response
+
+````
+{
+  data: {
+    type: 'teams',
+    id: 'team1',
+    attributes: {
+      player_1: 'player_id1',
+      player_2: 'player_id2',
+    },
+    links: {
+      self: '/teams/team1',
+    },
+  },
+}
+````
