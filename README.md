@@ -134,15 +134,40 @@ JSON API conventions.
       bids: [],
       tricks: [],
     },
-  }],
-  relationships: {
-    games: {
-      data: {
-        type: 'games',
-        id: 'game1',
+    relationships: {
+      games: {
+        data: {
+          type: 'games',
+          id: 'game1',
+        },
+        links: {
+          self: '/games/game1',
+        },
+      },
+      scores: {
+        data: [{
+          type: 'scores',
+          id: 'score1',
+          attributes: {
+            team: 'team1',
+            round_score: null,
+            total_score: 0,
+          },
+        }, {
+          type: 'scores',
+          id: 'score2',
+          attributes: {
+            team: 'team2',
+            round_score: null,
+            total_score: 0,
+          },
+        }],
+        links: {
+          self: '/games/game1/rounds/round1/scores',
+        },
       },
     },
-  },
+  }],
   links: {
     self: '/games/game1/rounds',
   },
