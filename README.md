@@ -24,7 +24,7 @@ JSON API conventions.
 }
 ````
 
-#### `/players` Response
+#### `GET /players/{player_id}` Response
 
 ````
 {
@@ -74,7 +74,7 @@ JSON API conventions.
 }
 ````
 
-#### `/games` Response
+#### `GET /games/{game_id}` Response
 
 ````
 {
@@ -82,7 +82,7 @@ JSON API conventions.
     type: 'games',
     id: 'game1',
     attributes: {
-      order: [player_id1, player_id2, player_id3, player_id4], 
+      order: [player_id1, player_id2, player_id3, player_id4],
       play_until: 500,
       winner: null,
     },
@@ -116,6 +116,20 @@ JSON API conventions.
           },
         }]
       }
+    },
+  },
+}
+````
+
+#### `POST /games/{game_id}/rounds` Request
+
+````
+{
+  data: {
+    type: 'rounds',
+    attributes: {
+      bids: [],
+      tricks: [],
     },
   },
 }
