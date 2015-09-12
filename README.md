@@ -161,11 +161,11 @@ JSON API conventions.
 }
 ````
 
-#### `GET /games/{game_id}/rounds` Response
+#### `GET /games/{game_id}/rounds/{round_id}` Response
 
 ````
 {
-  data: [{
+  data: {
     type: 'rounds',
     id: 'round1',
     attributes: {
@@ -232,7 +232,7 @@ JSON API conventions.
         },
       },
     },
-  }],
+  },
   links: {
     self: '/games/game1/rounds',
   },
