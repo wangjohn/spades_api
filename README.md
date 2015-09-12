@@ -121,6 +121,8 @@ JSON API conventions.
 }
 ````
 
+### Resource `/games/{game_id}/rounds`
+
 #### `POST /games/{game_id}/rounds` Request
 
 ````
@@ -128,8 +130,32 @@ JSON API conventions.
   data: {
     type: 'rounds',
     attributes: {
-      bids: [],
-      tricks: [],
+      bids: [{
+        player: 'player_id1',
+        value: 3,
+      }, {
+        player: 'player_id2',
+        value: 3,
+      }, {
+        player: 'player_id3',
+        value: 3,
+      }, {
+        player: 'player_id4',
+        value: 3,
+      }],
+      tricks: [{
+        player: 'player_id1',
+        value: 3,
+      }, {
+        player: 'player_id2',
+        value: 3,
+      }, {
+        player: 'player_id3',
+        value: 3,
+      }, {
+        player: 'player_id4',
+        value: 4,
+      }],
     },
   },
 }
@@ -145,8 +171,33 @@ JSON API conventions.
     attributes: {
       bidding_order: ['player_id1', 'player_id3', 'player_id2', 'player_id4'],
       playing_order: ['player_id1', 'player_id3', 'player_id2', 'player_id4'],
-      bids: [],
-      tricks: [],
+      bids: [{
+        player: 'player_id1',
+        value: 3,
+      }, {
+        player: 'player_id2',
+        value: 3,
+      }, {
+        player: 'player_id3',
+        value: 3,
+      }, {
+        player: 'player_id4',
+        value: 3,
+      }],
+      tricks: [{
+        player: 'player_id1',
+        value: 3,
+      }, {
+        player: 'player_id2',
+        value: 3,
+      }, {
+        player: 'player_id3',
+        value: 3,
+      }, {
+        player: 'player_id4',
+        value: 4,
+      }],
+      bags: 1,
     },
     relationships: {
       games: {
@@ -164,16 +215,16 @@ JSON API conventions.
           id: 'score1',
           attributes: {
             team: 'team1',
-            round_score: null,
-            total_score: 0,
+            round_score: 61,
+            total_score: 60,
           },
         }, {
           type: 'scores',
           id: 'score2',
           attributes: {
             team: 'team2',
-            round_score: null,
-            total_score: 0,
+            round_score: 61,
+            total_score: 61,
           },
         }],
         links: {
@@ -188,7 +239,7 @@ JSON API conventions.
 }
 ````
 
-### `/teams` Resource
+### Resource `/teams`
 
 #### `POST /teams` Request
 
